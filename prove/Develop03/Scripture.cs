@@ -18,10 +18,10 @@ public class Scripture {
     public void HideRandomWord(int numberToHide) {
         int count = 0;
         int trigger = 0;
-        while (count < numberToHide || trigger == 100) {
+        while (count < numberToHide || trigger == 10 || IsCompletelyHidden()) {
             for (int i = 0; i < _words.Count(); i++)
             {
-                int random = rand.Next(0, 2);
+                int random = rand.Next(0, 5);
                 if (_words[i].isHidden()) {
                     trigger++;
                 } else if (random == 1) {
@@ -48,6 +48,7 @@ public class Scripture {
                 return false;
              } 
         };
+        Console.WriteLine("isCompletelyHidden");
         return true;
     }
 }

@@ -34,5 +34,6 @@ class Program
             Console.Write("Press enter to continue or type 'quit' to finish: ");
             input = Console.ReadLine();
         }
+        Console.WriteLine(nephiScripture.GetDisplayText());
     }
 }
