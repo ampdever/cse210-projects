@@ -1,18 +1,41 @@
 public class ListingActivity : Activity {
-    private int _count;
+    private int _count = 0;
     private List<string> _prompts;
 
-    public ListingActivity(string name, string desc, int dur) 
+    public ListingActivity(string name, string desc, int dur, List<string> prompts) 
         : base (name, desc, dur) {
-        //Listing constructor add whatever I need here
+            _prompts = prompts;
     }
 
     public void Run() {
-        //run this boi
+        Console.WriteLine("List as many responses you can to the following prompt:");
+        Console.WriteLine($" --- {GetRandomPrompt()} --- ");
+        
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(5);
+        while (DateTime.Now < futureTime) {
+            Console.Write("You may begin in...");
+            for (int i = 5; i >= 1; i--) {
+                Console.Write($"\rYou may begin in...{i}");
+                Thread.Sleep(1000);
+            }
+        }
+
+        DateTime startTimeTwo = DateTime.Now;
+        DateTime futureTimeTwo = startTime.AddSeconds(getDuration());
+        while(DateTime.Now < futureTimeTwo) {
+            Console.Write("> ");
+            string input = Console.ReadLine();
+            _count++;
+        }
+        Console.WriteLine($"You've listed {_count} items!");
+        Thread.Sleep(4000);
     }
 
-    public void GetRandomPrompt() {
-        // this is where the prompt comes from
+    public string GetRandomPrompt() {
+        Random rand = new();
+        int num = rand.Next(0, _prompts.Count());
+        return $"{_prompts[num]}";
     }
 
     public List<string> GetListFromUser() {
