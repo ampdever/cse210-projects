@@ -21,7 +21,7 @@ public class BreathingActivity : Activity {
                 Console.Write($"\rBreathe out...{i}");
                 Thread.Sleep(1000);
             }
-            Console.WriteLine("\b \b");
+            
             Console.WriteLine("\n");
         }
 

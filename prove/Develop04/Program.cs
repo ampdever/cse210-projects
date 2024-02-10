@@ -15,9 +15,22 @@ class Program
 
         List<string> prompts = new();
         prompts.Add("Think of a time when you did something really difficult.");
+        prompts.Add("Think of a time when you overcame an obstacle.");
+        prompts.Add("Think of the time you were happiest in life.");
+        prompts.Add("Think of when you succeeded in something you had previously failed at.");
+        prompts.Add("Think of when you got your first paycheck");
         List<string> questions = new();
         questions.Add("How did you feel when it was complete?");
         questions.Add("What is your favorite thing about this experience?");
+        questions.Add("What did you wish you knew before?");
+        questions.Add("Is there something you would've done differently in the situation?");
+        questions.Add("If someone else was in the same position, what would you tell them?");
+        List<string> listingPrompts = new();
+        listingPrompts.Add("When have you felt the Holy Ghost this month?");
+        listingPrompts.Add("What makes you feel calm?");
+        listingPrompts.Add("What motivates you?");
+        listingPrompts.Add("What makes you feel at peace?");
+        listingPrompts.Add("What things are you grateful for?");
 
 
 
@@ -63,13 +76,15 @@ class Program
                 Console.Clear();
                 Console.Write(lDesc);
                 int seconds = int.Parse(Console.ReadLine());
-                ListingActivity lActivity = new(lName, lDesc, seconds, prompts);
+                ListingActivity lActivity = new(lName, lDesc, seconds, listingPrompts);
                 int howLong = lActivity.getDuration();
 
                 lActivity.DisplayStartingMessage();
                 lActivity.ShowSpinner(5);
 
                 lActivity.Run();
+
+                lActivity.DisplayEndingMessage();
             } else Console.WriteLine("Please make a valid selection.");
 
             Console.Clear();

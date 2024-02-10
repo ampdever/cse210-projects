@@ -20,7 +20,10 @@ public class ListingActivity : Activity {
                 Thread.Sleep(1000);
             }
         }
+        Console.Write("\b \b");
+        Console.WriteLine("\n");
 
+        Console.WriteLine();
         DateTime startTimeTwo = DateTime.Now;
         DateTime futureTimeTwo = startTime.AddSeconds(getDuration());
         while(DateTime.Now < futureTimeTwo) {
