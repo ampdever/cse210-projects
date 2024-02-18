@@ -1,0 +1,63 @@
+Program
+-------
+this will call the run method
+
+
+Zoo
+-------
+List<Animal>
+============
+AddAnimal : void
+ShowAnimal : void
+ShowAllAnimals void
+
+
+
+Animal
+-----------
+_name : string
+_habitat : string
+_foodType : string
+==============
+makeSound() : void
+displayAnimal() : void
+
+
+Bird : Animal
+-------------
+_canFly : bool
+_birdType : string
+===============
+makeSound() : void
+displayAnimal() : void
+
+
+Mammal : Animal
+---------------
+_foodType : string
+================
+makeSound() : void
+displayAnimal() : void
+
+
+Reptiles : Animal
+--------------
+_size : string
+==================
+makeSound() : void
+displayAnimal() : void
+
+
+BirdPredator : Bird
+-------------------
+_foodType
+===================
+makeSound() : void
+displayAnimal() : void
+
+BirdForager : Bird
+---------------------
+_foodType
+===================
+makeSound() : void
+displayAnimal() : void
