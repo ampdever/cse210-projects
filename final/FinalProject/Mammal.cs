@@ -4,7 +4,6 @@ public class Mammal : Animal {
 
     public Mammal(string name, string habitat, string food, string sound) 
         : base (name, habitat, food) {
-            //other attributes of mammals should be assigned here
             _sound = sound;
     }
 
