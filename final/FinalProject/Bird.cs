@@ -1,21 +1,32 @@
 public class Bird : Animal {
-    //I need to come up with a better private attributes for the Mammals
+
     private string _sound;
     private bool _canFly;
 
     public Bird(string name, string habitat, string food, string sound, string fly) 
         : base (name, habitat, food) {
-            //other attributes of mammals should be assigned here
+
             _sound = sound;
-            _canFly = bool.Parse(fly);
+            if (fly == "Y" || fly == "y") {
+                _canFly = true;
+            } else _canFly = false;
+            
     }
 
-    public virtual void makeSound() {
-        Console.WriteLine("bird.makeSound");
+    public override string makeSound() {
+        return _sound;
     }
 
-    public virtual void displayAnimal() {
-        Console.WriteLine("bird.displayAnimal()");
+    public override void displayAnimal() {
+        Console.WriteLine($"The {getName()} lives in a {getHabitat()} and eats {getFoodType()}\n\tThe {getName()} goes {_sound}");
+    }
+
+    public string getSound() {
+        return _sound;
+    }
+
+    public string canFly() {
+        return _canFly.ToString();
     }
 
 

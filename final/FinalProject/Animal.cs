@@ -9,9 +9,8 @@ public class Animal {
         _foodType = food;
     }
 
-    public virtual void makeSound() {
-        //all the animals are going to make a sound each animal will get to make their own sound
-        Console.WriteLine("Animal.makeSound()");
+    public virtual string makeSound() {
+        return "";
     }
 
     public virtual void displayAnimal() {

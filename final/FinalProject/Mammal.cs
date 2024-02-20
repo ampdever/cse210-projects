@@ -1,5 +1,5 @@
 public class Mammal : Animal {
-    //I need to come up with a better private attributes for the Mammals
+
     private string _sound;
 
     public Mammal(string name, string habitat, string food, string sound) 
@@ -7,12 +7,12 @@ public class Mammal : Animal {
             _sound = sound;
     }
 
-    public override void makeSound() {
-        Console.WriteLine("Mammal.makeSound");
+    public override string makeSound() {
+        return _sound;
     }
 
     public override void displayAnimal() {
-        Console.WriteLine("mammal.displayAnimal()");
+        Console.WriteLine($"The {getName()} lives in a {getHabitat()} and eats {getFoodType()}\n\tThe {getName()} goes {_sound}");
     }
 
 

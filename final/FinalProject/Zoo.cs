@@ -1,8 +1,8 @@
 public class Zoo {
-    private List<Animal> _animals;
+    private List<Animal> _animals = new List<Animal>();
 
     public Zoo() {
-        //basically a default constructor for the Zoo class
+
     }
 
     public void Start() {
@@ -26,7 +26,20 @@ public class Zoo {
             } else if (input == 4) {
                 ShowAllAniamls();
             } else if (input == 8) {
-                //make a list of animals an preload it into the Animal list
+                Mammal mammalOne = new("Mouse", "fields", "cheese", "squeak");
+                Mammal mammalTwo = new("Zebra", "praries", "grass", "yip");
+                _animals.Add(mammalOne);
+                _animals.Add(mammalTwo);
+                Reptile repOne = new("Turtle", "water areas", "cabbage", "small");
+                Reptile repTwo = new("Gila monster", "desert", "bugs", "medium");
+                _animals.Add(repOne);
+                _animals.Add(repTwo);
+                BirdPredator pBird = new("Hawk", "open fields", "small mammals", "screeech!!!", "y", "daytime");
+                BirdForager fBirdOne = new("Cardinal", "brush", "berries", "chirp", "y", "bushes");
+                BirdForager fBirdTwo = new("Ostrich", "Africa", "foliage", "squawk", "n", "floor");
+                _animals.Add(pBird);
+                _animals.Add(fBirdOne);
+                _animals.Add(fBirdTwo);
             } else Console.WriteLine("Please make a valid choice.");
 
             Thread.Sleep(2000);
@@ -121,17 +134,44 @@ public class Zoo {
     }
 
     public void ShowAnimal() {
-        //give the user the option to look at the animals and choose which
-        //one they want to see
-        Console.WriteLine("Zoo.ShowAnimal()");
+
+        Console.WriteLine("Here are all the animals in the Zoo");
+
+        int count = 1;
+        foreach(Animal animal in _animals){
+            Console.WriteLine($"{count}. {animal.getName()}");
+            count++;
+        }
+
+        Console.WriteLine("Which animal would you like to look at?");
+        int answer = int.Parse(Console.ReadLine());
+
+        _animals[answer-1].displayAnimal();
     }
 
     public void ShowAllAniamls() {
-        //this is going to have a foreach loop to view all the animals, their names and stuff
-        Console.WriteLine("zoo.showAllAnimals()");
+        int count = 1;
+        foreach(Animal animal in _animals){
+            Console.WriteLine($"\n{count}. {animal.getName()}");
+            Console.WriteLine($"\tHabitat: {animal.getHabitat()}");
+            Console.WriteLine($"\tFood: {animal.getFoodType()}");
+            Console.WriteLine($"\tSound: {animal.makeSound()}");
+            count++;
+        }
     }
 
     public void HearAnimal() {
-        Console.WriteLine("zoo.hearAnimal()");
+        Console.WriteLine("Here are all the animals in the Zoo");
+
+        int count = 1;
+        foreach(Animal animal in _animals){
+            Console.WriteLine($"{count}. {animal.getName()}");
+            count++;
+        }
+
+        Console.WriteLine("Which animal would you like to hear?");
+        int answer = int.Parse(Console.ReadLine());
+
+        _animals[answer-1].makeSound();
     }
 }

@@ -1,20 +1,20 @@
 public class BirdForager : Bird {
-    //I need to come up with a better private attributes for the Mammals
+
     private string _foodLocation;
 
     public BirdForager(string name, string habitat, string food, string sound, string fly, string location) 
         : base (name, habitat, food, sound, fly) {
-            //other attributes of mammals should be assigned here
+
             _foodLocation = location;
 
     }
 
-    public override void makeSound() {
-        Console.WriteLine("BirdForager.makeSound");
+    public override string makeSound() {
+        return getSound();
     }
 
     public override void displayAnimal() {
-        Console.WriteLine("BirdForager.displayAnimal()");
+        Console.WriteLine($"The {getName()} lives in a {getHabitat()} and eats {getFoodType()}\n\tThey gather food around {_foodLocation} areas.");
     }
 
 
